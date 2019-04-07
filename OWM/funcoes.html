@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+ <html lang="pt-br">
+<head>
+
+	
+</script>
+
+</head>
+<body >
+
+<script>
+
+	function obterGeolocalizacao()
+    {
+       navigator.geolocation.getCurrentPosition(function (position) {
+        var position_latitude  = position.coords.latitude;
+        var position_longitude = position.coords.longitude;
+      });
+    }
+
+</script>
+<body>
+<p id="demo"></p>
+<script>
+
+function myfunction(p1,p2)
+{
+    // valores inteiros  
+    //return parseInt(p1) * parseInt(p2); // ou
+    //valores númericos com virgulas
+   // return parseFloat(p1) * parseFloat(p2); 
+   resultado = p1+p2;
+   return resultado;
+}
+document.getElementById("demo").innerHTML = myfunction("3","2");
+</script>
+</body>
+</html>

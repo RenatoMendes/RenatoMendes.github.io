@@ -1,0 +1,103 @@
+<!DOCTYPE HTML>
+ <html lang="pt-br">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport">
+    <title>OpenWeatherMap</title>
+
+    <!-- Scripts Externos -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <!-- Scripts Externos -->
+
+
+    <!-- Scripts Customizações |CSS / JS|
+    <script src="js/meu-script.js"></script> -->
+    <link rel="stylesheet" type="text/css" href="css/meu-stylesheet.css">
+    <!-- Scripts Customizações |CSS / JS| -->
+  <script type="text/javascript"> 
+    
+    $(document).ready(function () {
+    
+      $.getJSON('cidades.json', function (data) {
+        var items = [];
+        var options = '<option value="">Escolha um Estado</option>';  
+        $.each(data, function (key, val) {
+          options += '<option value="' + val.nome + '">' + val.nome + '</option>';
+        });         
+        $("#estados").html(options);        
+        
+        $("#estados").change(function () {        
+        
+          var options_cidades = '';
+          var str = "";         
+          
+          $("#estados option:selected").each(function () {
+            str += $(this).text();
+          });
+          
+          $.each(data, function (key, val) {
+            if(val.nome == str) {             
+              $.each(val.cidades, function (key_city, val_city) {
+                options_cidades += '<option value="' + val_city + '">' + val_city + '</option>';
+              });             
+            }
+          });
+          $("#cidades").html(options_cidades);
+          
+        }).change();    
+      
+      });
+    
+    });
+    
+  </script>   
+
+</head>
+
+<body class="container">
+   <header>
+      <nav>
+          <ul class="nav">
+              <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+              <li class="nav-item"><a class="nav-link" href="listaResultado.html">Lista</a></li>
+          </ul>
+      </nav>
+  </header>
+ 
+  <section>
+      <article>
+          <header>
+              <h2>JSON - Open Weather Map</h2>
+          </header>
+          <p>Descrição - Realizando chamada de APi OPW para receber dados ia consulta Json.</p>
+      </article>
+  </section>
+ <br/><br/>
+  <aside>
+     <form> 
+    <div class="form-group">
+            
+          <!-- Estado -->
+    <div style="float: left;">
+          <select class="form-control" id="estados">
+            <option value=""></option>
+          </select>
+    </div>
+    <div <div style="float: left;">
+          <select class="form-control" id="cidades">
+          </select>
+    </div>
+    </div>
+     </form>
+  </aside>
+ <br/><br/>
+  
+  <footer>
+      <center>Copyright©2019</center>
+  </footer>
+  
+</body>
+</html>
+
+

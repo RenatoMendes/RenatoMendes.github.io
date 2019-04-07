@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<body onload="getLocation();">
+<p id="demo"></p>
+<h1 id="conteudo"></h1>
+<button onclick="showParametros()">[*]__Show Parametros__[*]</button>
+<script>
+var x=document.getElementById("demo");
+//var content =document.getElementById("conteudo");
+
+function getLocation()
+  {
+  if (navigator.geolocation)
+    {
+    navigator.geolocation.getCurrentPosition(showPosition);
+    }
+  else{x.innerHTML="O seu navegador não suporta Geolocalização.";}
+  }
+function showPosition(position)
+  {
+  x.innerHTML="Latitude: " + position.coords.latitude +
+  "<br>Longitude: " + position.coords.longitude; 
+  }
+/*
+  
+  function Parametros(p1,p2){
+    
+    p1 = "Parametros 1";
+    p2 = "Parametros 2";
+  
+  }
+
+  function showParametros(Parametros){
+    content.innerHTML = p1+p2;
+  }
+*/
+</script>
+</body>
+</html>

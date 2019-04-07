@@ -1,0 +1,31 @@
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+
+
+<button id="exibirCombobox">Mostra combobox</button>
+<select id="disciplinas" hidden></select>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        var disciplinas = ["Matematica", "Portugues", "Historia", "etc..."]; //Lista retornada pelo banco
+        var combobox = $("#disciplinas");
+
+        for (var i = 0; i < disciplinas.length; i++) {
+            combobox.append(
+                    $('<option>', {value: disciplinas[i], text: disciplinas[i]})
+            );
+        }
+
+        $("#exibirCombobox").click(function () {
+            combobox.toggle(); //Pode usar .show() para mostrar
+        });
+
+    });
+</script>
+</body>
+</html>
