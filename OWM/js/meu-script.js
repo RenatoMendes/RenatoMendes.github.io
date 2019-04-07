@@ -12,7 +12,7 @@ var apiUrl    = "https://api.openweathermap.org/data/2.5/weather?q=London";
 /*var longitude = "lon"+position_longitude;
 var latitude  = "lat"+position_latitude;*/
 var apiKey    = "&appid=b7b1d6903c8c6e746ca4cc92f48df172";
-alert("teste");
+
 //Conexão Api JSON
 
 $.ajax({
