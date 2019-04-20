@@ -1,0 +1,5 @@
+# robots.txt Renato Mendes
+User-agent: *
+Disallow: 
+Disallow: /cgi-bin/
+Sitemap: http://www.renatomendes.com/sitemap.xml
